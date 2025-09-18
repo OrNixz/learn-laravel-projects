@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
 
@@ -16,9 +17,17 @@ Route::get('/tasks', function () {
     ]);
 })->name('tasks.index');
 
-Route::get('tasks/{id}', function ($id) {
+Route::view('/tasks/create', 'create')
+    ->name('tasks.create');
+
+Route::get('/tasks/{id}', function ($id) {
     return view('show', [
         // 'task' => Task::find($id)
         'task' => Task::findOrFail($id)
     ]);
 })->name('tasks.show');
+
+Route::post('/tasks', function (Request $request) {
+    // dd('We have reached the store route');
+    dd($request->all());
+})->name('tasks.store');
