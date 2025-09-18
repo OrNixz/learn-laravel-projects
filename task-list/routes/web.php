@@ -11,9 +11,9 @@ Route::get('/', function () {
 
 Route::get('/tasks', function () {
     return view('index', [
-        // 'tasks' => Task::all()
+        'tasks' => Task::all()
         // 'tasks' => Task::latest()->get()
-        'tasks' => Task::latest()->where('completed', true)->get()
+        // 'tasks' => Task::latest()->where('completed', true)->get()
     ]);
 })->name('tasks.index');
 
@@ -29,5 +29,19 @@ Route::get('/tasks/{id}', function ($id) {
 
 Route::post('/tasks', function (Request $request) {
     // dd('We have reached the store route');
-    dd($request->all());
+    // dd($request->all());
+    $data = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'required',
+        'long_description' => 'required'
+    ]);
+
+    $task = new Task;
+    $task->title = $data['title'];
+    $task->description = $data['description'];
+    $task->long_description = $data['long_description'];
+
+    $task->save();
+
+    return redirect()->route('tasks.show', ['id' => $task->id]);
 })->name('tasks.store');
