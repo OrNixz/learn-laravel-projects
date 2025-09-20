@@ -12,8 +12,21 @@
         .btn {
             @apply px-2 py-1 font-medium text-center rounded-md shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50 text-slate-500
         }
+
         .link {
             @apply font-medium text-gray-700 underline decoration-pink-500
+        }
+
+        label {
+            @apply block uppercase text-slate-700 mb-2
+        }
+
+        input, textarea {
+            @apply shadow-sm appearance-none border w-full py-2 px-3 text-slate-700/40 leading-tight focus-within:outline-2 focus-within:outline-indigo-600
+        }
+
+        .error {
+            @apply text-red-500 text-sm
         }
     </style>
     {{-- blade-formatter-enable --}}
