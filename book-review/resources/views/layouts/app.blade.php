@@ -40,9 +40,17 @@
         .reset-link {
             @apply text-slate-500 underline;
         }
-    </style>
 
+        .input {
+            @apply shadow-sm appearance-none border w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none rounded-md border-slate-300;
+        }
+
+        .btn {
+            @apply bg-white rounded-md px-4 py-2 text-center font-medium text-slate-500 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50 h-10;
+        }
+    </style>
     {{-- blade-formatter-enable --}}
+
 </head>
 <body class="container mx-auto mt-10 mb-10 max-w-3xl">
     @yield('content')
