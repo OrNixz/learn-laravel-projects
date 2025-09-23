@@ -48,6 +48,18 @@
         .btn {
             @apply bg-white rounded-md px-4 py-2 text-center font-medium text-slate-500 shadow-sm ring-1 ring-slate-700/10 hover:bg-slate-50 h-10;
         }
+
+        .filter-container {
+            @apply mb-4 flex space-x-2 rounded-md bg-slate-100 p-2;
+        }
+
+        .filter-item {
+            @apply flex w-full items-center justify-center rounded-md px-4 py-2 text-center text-sm font-medium text-slate-500;
+        }
+
+        .filter-item-active {
+            @apply bg-white shadow-sm text-slate-800 flex w-full items-center justify-center rounded-md px-4 py-2 text-center text-sm font-medium;
+        }
     </style>
     {{-- blade-formatter-enable --}}
 
